@@ -1,19 +1,19 @@
 package models;
 
-public class Cuenta {
-    private String numeroCuenta;
+public class Cuenta<T> {
+    private T numeroCuenta;
     private String nip;
     private double saldo;
     private String titular;
 
-    public Cuenta(String numeroCuenta, String nip, double saldo, String titular) {
+    public Cuenta(T numeroCuenta, String nip, double saldo, String titular) {
         this.numeroCuenta = numeroCuenta;
         this.nip = nip;
         this.saldo = saldo;
         this.titular = titular;
     }
 
-    public String getNumeroCuenta() {
+    public T getNumeroCuenta() {
         return numeroCuenta;
     }
 
@@ -45,7 +45,7 @@ public class Cuenta {
         return false;
     }
 
-    public boolean transferir(double cantidad, Cuenta destino) {
+    public boolean transferir(double cantidad, Cuenta<T> destino) { // 👈 nota que destino también es genérico
         if (retirar(cantidad)) {
             destino.depositar(cantidad);
             return true;

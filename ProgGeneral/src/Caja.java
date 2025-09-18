@@ -15,6 +15,7 @@ class Caja<T> {
     }
 
     public String toString() {
+
         return "Caja contiene: " + contenido;
     }
 }
